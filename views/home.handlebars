@@ -1,39 +1,32 @@
 <div class="container">
-  <form  action="/registration" method="post">
+  <form  action="/waiters" method="post">
 
       <div id="displayreg"><h2> Waiters Webapp</h2>
- <strong><h3>Enter a registration number:</h3></strong></div>
+ <strong><h3>Enter your Name:</h3></strong></div>
 
         <br>
         <div id="textFieldAndBtn">
-          <input type="text" class="registrationNum" name="nums" value="" pattern='[A-Z]{2,3}\s\d{3}\W\d{3}|[A-Z]{2,3}\s\d{2,3}' title="Example: CA 123-345">
+          <input type="text" class="workersName" name="nums" value="" pattern='[A-Za-z]{0,20}' title="Example: Phindie">
           <br><br>
+          <form action="/">
+  <input type="checkbox" name="checkboX" value=""> Monday
+  <input type="checkbox" name="checkboX" value=""> Tuesday
+   <input type="checkbox" name="checkboX" value=""> Wednesday
+    <input type="checkbox" name="checkboX" value=""> Thursday
+  <input type="checkbox" name="checkboX" value="">Friday
+  <input type="checkbox" name="checkboX" value=""> Saturday
+  <input type="checkbox" name="checkboX" value=""> Sunday
+</form><br><br>
         <button type="submit" class="btn">ADD</button>
+
            <a href="/reset"><button type="button" class="btn">RESET</button></a>
           </form> <br>
           <span> <span class="alert"></span> </span>
         
          <br>
          <br>
-
-         
-        <div class="addTown">
-          <form action="/towns" method="GET">
-            <label for="town: "></label>
-          <select onchange="filterBy(this)" class="DropSelector" name="selectTown">
-
-            <option  name="selectTown" class="DropSelector" value="All">All-Towns</option>
-
-             {{#each Numbers}}
-            <option name="selectTown" value="{{town_id}}" {{selected}}> {{town_name}}</option>
-            {{/each}}
           
-
-          </select>
-          
-           </form>
-          
-        </div>
+       
  {{#if messages.info}}
 <div class="entry">
     <h4> {{messages.info}}</h4>
