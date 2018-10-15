@@ -1,28 +1,62 @@
-<div class="front">
-    
-{{!-- <img src='./img/cover1e.jpeg' alt="" class="img-fluid" style="height: 100%"> --}}
-    <div class="container text-light">
-        <div class="row">
-            <div class="col top mt-5 mb-5">
-                <h1 class="welcome">WELCOME TO <span class="text-warning"><em><strong>IKOFU</strong></em></span></h1>
-            </div>
-        </div>
-        <div class="w-100"></div>
-        <div class="row client">
-            <div class="col">
-                <p>To order a cup of warm coffee <br> to our superb coffe shop <br>use this button below:</p>
-                <a href="/client" type="button" class="btn btn-warning"><h5>Client side</h5></a>
-            </div>
-        </div>
-        <div class="row employee">
-            <div class="col">
-                <p>Only valid workers <br> can use this feature <br>To select working days</p>
-                <a href="/login" type="button" class="btn btn-light"><h5>Employees</h5></a>
-            </div>
-        </div>
-    </div>
-    <footer class='centered'>
-        <h6 >Copyright &copy; 2018. Ikofu </h6>
-    </footer>
+<div class="container">
+  <form  action="/registration" method="post">
 
+      <div id="displayreg"><h2> Waiters Webapp</h2>
+ <strong><h3>Enter a registration number:</h3></strong></div>
+
+        <br>
+        <div id="textFieldAndBtn">
+          <input type="text" class="registrationNum" name="nums" value="" pattern='[A-Z]{2,3}\s\d{3}\W\d{3}|[A-Z]{2,3}\s\d{2,3}' title="Example: CA 123-345">
+          <br><br>
+        <button type="submit" class="btn">ADD</button>
+           <a href="/reset"><button type="button" class="btn">RESET</button></a>
+          </form> <br>
+          <span> <span class="alert"></span> </span>
+        
+         <br>
+         <br>
+
+         
+        <div class="addTown">
+          <form action="/towns" method="GET">
+            <label for="town: "></label>
+          <select onchange="filterBy(this)" class="DropSelector" name="selectTown">
+
+            <option  name="selectTown" class="DropSelector" value="All">All-Towns</option>
+
+             {{#each Numbers}}
+            <option name="selectTown" value="{{town_id}}" {{selected}}> {{town_name}}</option>
+            {{/each}}
+          
+
+          </select>
+          
+           </form>
+          
+        </div>
+ {{#if messages.info}}
+<div class="entry">
+    <h4> {{messages.info}}</h4>
 </div>
+{{/if}}
+        <div class="numberDisplay"></div>
+      
+</div>
+    {{#each regPlates}}
+    <li class=''>
+      {{town_name}}
+     
+    </li>
+    {{/each}}
+    
+
+
+       
+</div>
+
+  <script type="text/javascript">
+    function filterBy(elem){
+      var  tag = elem.value
+      location.href = '/filter/' + tag
+    }
+  </script>

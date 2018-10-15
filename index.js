@@ -1,15 +1,13 @@
 const exphbs = require('express-handlebars');
 const flash = require('express-flash');
- const session = require('express-session');
- const Registrations = require('./views/home')
-const Routes = require ('./Routes/route')
-const Services = require ('./services/waiterServices')
+const session = require('express-session');
+const Routes = require ('./Routes/route');
+const Workers = require ('./services/waiterServices')
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const pg = require("pg");
 const Pool = pg.Pool;
-
 
 
 let useSSL = false;
@@ -24,7 +22,6 @@ const pool = new Pool({
   ssl: useSSL
 });
 
- const reg = Registrations();
 
   // initialise session middleware - flash-express depends on it
   app.use(session({
@@ -48,9 +45,21 @@ const pool = new Pool({
   }))
   app.use(bodyParser.json());
   app.use(express.static('public'));
-  
+
+app.get('/', function(req, res){
+
+  res.render('home');
+
+})
+
+app.post('/waiters', function(req, res){
+
+  res.render('home');
+})
 
 
-  const services = Services(pool);
-  const plateRoute = Routes(services);
- 
+  const PORT = process.env.PORT || 3018;
+
+  app.listen(PORT, function () {
+      console.log("started on: ", this.address().port);
+  });
