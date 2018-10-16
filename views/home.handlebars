@@ -1,21 +1,22 @@
-<div class="container">
+
+<center><div class="container">
   <form  action="/waiters" method="post">
 
-      <div id="displayreg"><h2> Waiters Webapp</h2>
+      <div id="displayreg"><h1>La Dreamia Waiters Webapp</h1><br><br>
  <strong><h3>Enter your Name:</h3></strong></div>
 
         <br>
         <div id="textFieldAndBtn">
           <input type="text" class="workersName" name="nums" value="" pattern='[A-Za-z]{0,20}' title="Example: Phindie">
-          <br><br>
-          <form action="/">
-  <input type="checkbox" name="checkboX" value=""> Monday
-  <input type="checkbox" name="checkboX" value=""> Tuesday
-   <input type="checkbox" name="checkboX" value=""> Wednesday
-    <input type="checkbox" name="checkboX" value=""> Thursday
-  <input type="checkbox" name="checkboX" value="">Friday
-  <input type="checkbox" name="checkboX" value=""> Saturday
-  <input type="checkbox" name="checkboX" value=""> Sunday
+          </div><br><br>
+      <form action="">
+  <input type="checkbox" class="tickbox" name="checkboX" value=""> Monday
+  <input type="checkbox"class="tickbox"  name="checkboX" value=""> Tuesday
+   <input type="checkbox"class="tickbox"  name="checkboX" value=""> Wednesday
+    <input type="checkbox"class="tickbox"  name="checkboX" value=""> Thursday
+  <input type="checkbox"class="tickbox"  name="checkboX" value="">Friday
+  <input type="checkbox"class="tickbox"  name="checkboX" value=""> Saturday
+  <input type="checkbox"class="tickbox"  name="checkboX" value=""> Sunday
 </form><br><br>
         <button type="submit" class="btn">ADD</button>
 
@@ -34,7 +35,7 @@
 {{/if}}
         <div class="numberDisplay"></div>
       
-</div>
+</div></center>
     {{#each regPlates}}
     <li class=''>
       {{town_name}}
