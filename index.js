@@ -1,13 +1,14 @@
 const exphbs = require('express-handlebars');
 const flash = require('express-flash');
 const session = require('express-session');
-const Routes = require ('./Routes/route');
+const Route = require ('./Routes/route');
 const Workers = require ('./services/waiterServices')
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const pg = require("pg");
 const Pool = pg.Pool;
+
 
 
 let useSSL = false;
@@ -46,14 +47,14 @@ const pool = new Pool({
   app.use(bodyParser.json());
   app.use(express.static('public'));
 
-app.get('/', function(req, res){
+  const getRoute = Route();
 
-  res.render('home');
-
+ 
+  app.get('/', function(req, res){
+   res.render('home');
 })
 
 app.post('/waiters', function(req, res){
-
   res.render('home');
 })
 

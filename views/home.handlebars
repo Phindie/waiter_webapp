@@ -3,31 +3,32 @@
   <form  action="/waiters" method="post">
 
       <div id="displayreg"><h1>La Dreamia Waiters Webapp</h1><br><br>
- <strong><h3>Enter your Name:</h3></strong></div>
+     <img src="Webp.net.jpg" class="w3-circle" alt="Alps">
 
         <br>
-        <div id="textFieldAndBtn">
+        {{!-- <div id="textFieldAndBtn">
           <input type="text" class="workersName" name="nums" value="" pattern='[A-Za-z]{0,20}' title="Example: Phindie">
-          </div><br><br>
+          </div><br><br> --}}
+          <h3>Select days</h3>
       <form action="">
+   <input type="checkbox"class="tickbox"  name="checkboX" value=""> Sunday     
   <input type="checkbox" class="tickbox" name="checkboX" value=""> Monday
   <input type="checkbox"class="tickbox"  name="checkboX" value=""> Tuesday
    <input type="checkbox"class="tickbox"  name="checkboX" value=""> Wednesday
     <input type="checkbox"class="tickbox"  name="checkboX" value=""> Thursday
   <input type="checkbox"class="tickbox"  name="checkboX" value="">Friday
-  <input type="checkbox"class="tickbox"  name="checkboX" value=""> Saturday
-  <input type="checkbox"class="tickbox"  name="checkboX" value=""> Sunday
-</form><br><br>
-        <button type="submit" class="btn">ADD</button>
+  <input type="checkbox"class="tickbox"  name="checkboX" value=""> Saturday<br><br>
+  <button type="submit" class="btn">ADD</button>
 
            <a href="/reset"><button type="button" class="btn">RESET</button></a>
+</form><br><br>
+      
           </form> <br>
           <span> <span class="alert"></span> </span>
         
          <br>
          <br>
-          
-       
+
  {{#if messages.info}}
 <div class="entry">
     <h4> {{messages.info}}</h4>

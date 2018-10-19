@@ -1,8 +1,7 @@
--- DROP TABLE waiter,  shifts, weekdays; 
+--  DROP TABLE waiter,  shifts, weekdays; 
 create table waiter(
     id serial primary key not null,
-    first_name text not null,
-    -- namecode int not null
+    first_name text not null
 );
 
 create table weekdays(
@@ -10,7 +9,6 @@ create table weekdays(
     day text not null
 
 );
-
 create table shifts (
     id serial primary key not null,
     waiter_id int not null,
