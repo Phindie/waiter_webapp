@@ -50,13 +50,17 @@ const pool = new Pool({
   const getRoute = Route();
 
  
-  app.get('/', function(req, res){
-   res.render('home');
+  app.get('/waiters/:username', function(req, res){
+    let name = req.params.username
+   res.render('home',{name});
 })
 
-app.post('/waiters', function(req, res){
+app.post('/waiters/:username', function(req, res){
   res.render('home');
 })
+
+
+
 
 
   const PORT = process.env.PORT || 3018;

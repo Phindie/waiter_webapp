@@ -3,12 +3,10 @@
   <form  action="/waiters" method="post">
 
       <div id="displayreg"><h1>La Dreamia Waiters Webapp</h1><br><br>
-     <img src="Webp.net.jpg" class="w3-circle" alt="Alps">
-
+     <img src="../images/images.png" />
+    
+<div class="numberDisplay">{{name}}</div>
         <br>
-        {{!-- <div id="textFieldAndBtn">
-          <input type="text" class="workersName" name="nums" value="" pattern='[A-Za-z]{0,20}' title="Example: Phindie">
-          </div><br><br> --}}
           <h3>Select days</h3>
       <form action="">
    <input type="checkbox"class="tickbox"  name="checkboX" value=""> Sunday     
@@ -34,20 +32,9 @@
     <h4> {{messages.info}}</h4>
 </div>
 {{/if}}
-        <div class="numberDisplay"></div>
+        
       
-</div></center>
-    {{#each regPlates}}
-    <li class=''>
-      {{town_name}}
-     
-    </li>
-    {{/each}}
-    
 
-
-       
-</div>
 
   <script type="text/javascript">
     function filterBy(elem){

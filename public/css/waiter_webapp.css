@@ -26,3 +26,9 @@
     background-color:indianred ;
     color: white;
   }
+  .image{
+   width: 100px;
+  }
+  .photo{
+      background-image: url('/views/images.png')
+  }
