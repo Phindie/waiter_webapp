@@ -9,19 +9,13 @@ module.exports = function (employeeService, weekdaysService) {
     }
     async function getRoute (req, res, next) {
         try{
-            let user = req.body.name_employee;
-            let pass = parseInt(req.body.pass_code);
+            let user = req.body.username;
+            let pass = parseInt(req.body.first_name);
             console.log(pass);
             let username = await employeeService.selectEmployee(user);
             let userData = await weekdaysService.allDays();
-            if(user === 'admin' && pass === username[0].passcode){
-                res.render('adminPage', user);
-            }
-            else if(user !== '' && pass === username[0].passcode){
-                res.render('employeePage', {userData, user});
-            }
-            else{
-                req.flash('info', 'Please enter a valid username or passcode');
+            if(user === 'waitersList' && user ==! username[0]){
+                res.render('waitersList', user);
             }
             
         } catch (err) {
@@ -30,8 +24,7 @@ module.exports = function (employeeService, weekdaysService) {
     }
     async function displayDays (req, res, next) {
         try{
-            
-            res.redirect('/employeePage');
+            res.redirect('/waitersList');
         } catch(err) {
             next(err);
         }

@@ -66,6 +66,7 @@ app.post('/waiters/:username', function(req, res){
 })
 
 app.post('/waiters/waitersList/:username', function(req, res){
+  
   res.render('home');
 })
 

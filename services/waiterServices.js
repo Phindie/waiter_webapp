@@ -3,7 +3,7 @@ module.exports = function (pool) {
         let result = await pool.query('select * from waiter');
         return result.rows;
     }
-    async function This() {
+    async function collectDays() {
         let result = await pool.query('select * from weekdays');
         return result.rows;
     }
@@ -40,7 +40,7 @@ module.exports = function (pool) {
     }
 
     async function insertwaiterShifts(userId,shifts){
-        let ckeck = Array.isArray(shifts);
+        let check = Array.isArray(shifts);
         if(check){
             for(let i = 0;i<shifts.length; i++){
                 let days  = shifts[i];
@@ -66,7 +66,7 @@ return{
     Workers,
     selectWorkers,
     reset,
-    This,
+    collectDays,
     Shift,
     selectShift,
     insertUser,

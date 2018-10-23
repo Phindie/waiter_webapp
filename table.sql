@@ -1,4 +1,4 @@
---  DROP TABLE waiter,  shifts, weekdays; 
+  DROP TABLE waiter,  shifts, weekdays; 
 create table waiter(
     id serial primary key not null,
     first_name text not null
