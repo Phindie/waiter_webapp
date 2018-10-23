@@ -2,7 +2,8 @@ const exphbs = require('express-handlebars');
 const flash = require('express-flash');
 const session = require('express-session');
 const Route = require ('./Routes/route');
-const Workers = require ('./services/waiterServices')
+const Workers = require ('./services/waiterServices');
+const landingPage = require ('./views/landing');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -48,14 +49,23 @@ const pool = new Pool({
   app.use(express.static('public'));
 
   const getRoute = Route();
+  const landPage = landingPage();
 
- 
+  app.get('/landing', function(req, res){
+    // let name = req.params.username
+   res.render('/');
+  })
+
   app.get('/waiters/:username', function(req, res){
     let name = req.params.username
    res.render('home',{name});
 })
 
 app.post('/waiters/:username', function(req, res){
+  res.render('home');
+})
+
+app.post('/waiters/waitersList/:username', function(req, res){
   res.render('home');
 })
 

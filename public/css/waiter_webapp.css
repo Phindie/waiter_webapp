@@ -1,7 +1,7 @@
 
 
 .container{
-    background-color: pink;
+    background-color: sandybrown;
     height: 650px;
     width: auto;
     border: 4px dotted green;
@@ -26,9 +26,11 @@
     background-color:indianred ;
     color: white;
   }
-  .image{
-   width: 100px;
+  .images{
+   width: 40px;
   }
   .photo{
-      background-image: url('/views/images.png')
+      background-image: url('/views/qxlNN.jpg');
+      width: 200px;
+      height: 130px;
   }
