@@ -1,21 +1,22 @@
 
 <center><div class="container">
-  <form  action="/waiters" method="post">
+  <form  method="post">
 
       <div id="displayreg"><h1>La Dreamia Waiters Webapp</h1><br><br>
      <img src="../images/qxlNN.jpg" class="photo" />
     
-<strong><h1><div class="numberDisplay">{{name}}</div></h1></strong>
+<strong><h1><div class="numberDisplay">{{user}}</div></h1></strong>
         <br>
           <h3>Select your working days</h3>
       <form action="">
-   <input type="checkbox"class="tickbox"  name="checkboX" value=""> Sunday     
-  <input type="checkbox" class="tickbox" name="checkboX" value=""> Monday
-  <input type="checkbox"class="tickbox"  name="checkboX" value=""> Tuesday
-   <input type="checkbox"class="tickbox"  name="checkboX" value=""> Wednesday
-    <input type="checkbox"class="tickbox"  name="checkboX" value=""> Thursday
-  <input type="checkbox"class="tickbox"  name="checkboX" value="">Friday
-  <input type="checkbox"class="tickbox"  name="checkboX" value=""> Saturday<br><br>
+
+     {{#each weekdays}}
+     
+           <label class="tickbox">
+                <input type="checkbox" name="shifts" value= '{{day}}'>{{day}}</label>
+        {{/each}}
+
+  
   <button type="submit" class="btn">ADD</button>
 
            <a href="/reset"><button type="button" class="btn">RESET</button></a>
@@ -35,12 +36,13 @@
         
       
 <footer class='centered'>
-        <h6>Copyright &copy; 2018. LA Dreamia</h6>
+        <h6>Copyright &copy; 2018. Phindi</h6>
     </footer>
-
-  <script type="text/javascript">
+</div>
+</center>
+  {{!-- <script type="text/javascript">
     function filterBy(elem){
       var  tag = elem.value
       location.href = '/filter/' + tag
     }
-  </script>
+  </script> --}}

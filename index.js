@@ -48,30 +48,14 @@ const pool = new Pool({
   app.use(bodyParser.json());
   app.use(express.static('public'));
 
-  const getRoute = Route();
-  const landPage = landingPage();
-
-  app.get('/landing', function(req, res){
-    // let name = req.params.username
-   res.render('/');
-  })
-
-  app.get('/waiters/:username', function(req, res){
-    let name = req.params.username
-   res.render('home',{name});
-})
-
-app.post('/waiters/:username', function(req, res){
-  res.render('home');
-})
-
-app.post('/waiters/waitersList/:username', function(req, res){
-  
-  res.render('home');
-})
+  let service = Workers(pool)
+  const route = Route(service);
 
 
 
+  app.get('/waiters/:username', route.getRoute);
+  app.post('/waiters/:username', route.getPost);
+  app.get('/days', route.getShifts);
 
 
   const PORT = process.env.PORT || 3018;
