@@ -13,10 +13,15 @@ module.exports = function (service) {
     async function getPost (req, res, next) {
         try{
             let user = req.params.username;
+            let shifts = req.body.shifts;
+            console.log(shifts);
+            
             let weekdays = await service.collectDays();
+            let userId = await service.getUserId(user);
+            await service.insertwaiterShifts(userId,shifts);
             res.render('home', {user, weekdays});
         } catch(err) {
-
+            res.send(err.stack)
         }
     }
     async function getShifts(req, res, next) {

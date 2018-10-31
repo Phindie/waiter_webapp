@@ -15,8 +15,8 @@ module.exports = function (pool) {
     async function insertUser(username){
         let result = await pool.query('insert into waiter (first_name) values ($1) ',[username])
     }
-    async function insertShift (name) {
-        let result = await pool.query('insert into shifts (waiter_id,weekday_id) values ($1,$2)',[userId,dayId[i]]);
+    async function insertShift (userId,dayId) {
+        let result = await pool.query('insert into shifts (waiter_id,weekday_id) values ($1,$2)',[userId,dayId]);
         return result.rows;
     }
     async function selectWaiter(name) {
@@ -45,14 +45,14 @@ module.exports = function (pool) {
         if(check){
             for(let i = 0;i<shifts.length; i++){
                 console.log(i);
-                let days  = shifts[i];
-                let dayData = await selectDay(day);
+                let day  = shifts[i];
+                let dayData = await selectWeekdays(day);
                 let dayId = dayData[0].id;
                 await insertShift(userId,dayId);
 
             }
         }else{
-            let dayData = await selectDay(shifts);
+            let dayData = await selectWeekdays(shifts);
             let dayId = dayData[0].id;
             await insertShift(userId,dayId);
         }
