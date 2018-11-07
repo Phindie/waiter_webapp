@@ -28,6 +28,10 @@ module.exports = function (pool) {
         let result = await pool.query('select * from weekdays where day = $1', [name]);
         return result.rows;
     }
+    async function jointTables(){
+        let result = await pool.query('select first_name, day from waiter join shifts ON waiter.id = shifts.waiter_id join weekdays ON shifts.weekday_id = weekdays.id ');
+        return result.rows;
+      }
    //check if user if already in the database
     async function getUserId(name){
         let userData = await selectWaiter (name)
@@ -73,7 +77,8 @@ return{
     getUserId,
     selectWaiter,
     insertwaiterShifts,
-    selectWeekdays 
+    selectWeekdays,
+    jointTables
    }
 
 }

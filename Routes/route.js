@@ -26,13 +26,9 @@ module.exports = function (service) {
     }
     async function getShifts(req, res, next) {
         try{
-            // let users = req.params.name;
-            // let Name = names.toUpperCase();
-
-            // let daysSelected = await service.insertwaiterShifts(users);
-            // console.log(daysSelected);
-            
-            res.render('waitersList');
+            let nameAndDays = await service.jointTables();
+            let weekdays = await service.collectDays();
+            res.render('waitersList', {weekdays,nameAndDays});
         } catch(err){
 
         }
