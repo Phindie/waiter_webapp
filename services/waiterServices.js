@@ -48,7 +48,6 @@ module.exports = function (pool) {
         let check = Array.isArray(shifts);
         if(check){
             for(let i = 0;i<shifts.length; i++){
-                console.log(i);
                 let day  = shifts[i];
                 let dayData = await selectWeekdays(day);
                 let dayId = dayData[0].id;
@@ -60,6 +59,39 @@ module.exports = function (pool) {
             let dayId = dayData[0].id;
             await insertShift(userId,dayId);
         }
+    }
+    async function getDayShifts(day){
+        let result = await pool.query('select * from shifts where weekday_id = $1', [day]);
+        return result.rows;
+    }
+    async function getAllShifts(){
+        let mainArray = [];
+        let days = await collectDays();
+        for(let i = 0 ; i < days.length ; i++){
+            let map = {};
+            
+            let tempArray = [];
+            let dayId = days[i].id;
+            let dayName = days[i].day;
+            let result = await getDayShifts(dayId);
+            for (let j = 0 ; j < result.length ; j++){
+                let nameData = await selectWaiterUsingID(result[j].waiter_id);
+                let name = nameData[0].first_name;
+                tempArray.push(name);
+            }
+            map = {
+                day : dayName,
+                waiters : tempArray
+            }
+            mainArray.push(map);
+        }
+        
+        console.log(mainArray);
+        return mainArray;
+    }
+    async function selectWaiterUsingID(id){
+        let result = await pool.query('select * from waiter where id = $1', [id]);
+        return result.rows;
     }
     async function reset(){
         await pool.query('delete from shifts');
@@ -78,7 +110,8 @@ return{
     selectWaiter,
     insertwaiterShifts,
     selectWeekdays,
-    jointTables
+    jointTables,
+    getAllShifts
    }
 
 }

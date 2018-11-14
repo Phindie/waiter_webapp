@@ -1,12 +1,16 @@
-
-
 .container{
     background-color: sandybrown;
     height: 650px;
-    width: auto;
+    width: 100px;
     border: 4px dotted green;
-    
-    }
+}
+
+.column{
+    width: 100px;
+    background-color: palevioletred;
+    height: 120px;
+    padding-left: 30px;
+}
 #textFieldAndBtn{
     height: 80px;
     width: 60px;
@@ -16,6 +20,13 @@
 .tickbox{
     height: 100px;
     width: 120px;
+}
+#table {
+    padding-top: 25px;
+    padding-bottom: 12px;
+    text-align: right;
+    /* color: white; */
+    width: 100%;
 }
 
 .btn {

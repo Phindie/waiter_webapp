@@ -1,48 +1,54 @@
+<center>
+  <div class="container">
+    <form method="post">
 
-<center><div class="container">
-  <form  method="post">
+      <div id="displayreg">
+        <h1>La Dreamia Waiters Webapp</h1><br><br>
+        <img src="../images/qxlNN.jpg" class="photo" />
 
-      <div id="displayreg"><h1>La Dreamia Waiters Webapp</h1><br><br>
-     <img src="../images/qxlNN.jpg" class="photo" />
-    
-<strong><h1><div class="numberDisplay">{{user}}</div></h1></strong>
+        <strong>
+          <h1>
+            <div class="numberDisplay">{{user}}</div>
+          </h1>
+        </strong>
         <br>
-          <h3>Select your working days</h3>
-      <form action="">
+        <h3>Select your working days</h3>
+        <form action="">
 
-     {{#each weekdays}}
-     
-           <label class="tickbox">
-                <input type="checkbox" name="shifts" value= '{{day}}'>{{day}}</label>
-        {{/each}}
+          {{#each weekdays}}
 
-  
-  <button type="submit" class="btn">Submit</button>
+          <label class="tickbox">
+            <input type="checkbox" name="shifts" value='{{day}}'>{{day}}</label>
+          {{/each}}
 
-           <a href="/reset"><button type="button" class="btn">RESET</button></a>
-</form><br><br>
-      
-          </form> <br>
-          <span> <span class="alert"></span> </span>
-        
-         <br>
-         <br>
 
- {{#if messages.info}}
-<div class="entry">
-    <h4> {{messages.info}}</h4>
-</div>
-{{/if}}
-        
-      
-<footer class='centered'>
-        <h6>Copyright &copy; 2018. Phindi</h6>
+          <button type="submit" class="btn">Submit</button>
+
+          
+        </form><br><br>
+
+    </form> <br>
+    <span> <span class="alert"></span> </span>
+
+    <br>
+    <br>
+
+    {{#if messages.info}}
+    <div class="entry">
+      <h4> {{messages.info}}</h4>
+    </div>
+    {{/if}}
+
+
+    <footer class='centered'>
+      <h6>Copyright &copy; 2018. Phindi</h6>
     </footer>
-</div>
+  </div>
 </center>
-  {{!-- <script type="text/javascript">
-    function filterBy(elem){
-      var  tag = elem.value
-      location.href = '/filter/' + tag
-    }
-  </script> --}}
+{{!--
+<script type="text/javascript">
+  function filterBy(elem) {
+    var tag = elem.value
+    location.href = '/filter/' + tag
+  }
+</script> --}}

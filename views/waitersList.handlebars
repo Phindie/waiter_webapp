@@ -1,43 +1,37 @@
-<div class="container">
-        <div class="row">
-        </div>
-        <div class="w-100"></div>
-        <div class="row justify-content-between">
+<div class="column">
+  <div class="row">
+  </div>
+  <div class="w-100"></div>
+  <div class="row justify-content-between">
     <div class="col-4"></div>
     <div class="col-6">
-    <h3 class="text-center text-secondary welcome">Working days</h3>
-    <div class="w-100"></div>
-    <div class="row mt-3">
-     <div class="col table-responsive">
-         <table class="table table-hover">
-            <thead>
-              {{#each weekdays}}
+      <h3 class="text-center text-secondary welcome">Working days</h3>
+      <div class="w-100"></div>
+      <div class="row mt-3">
+        <div class="col table-responsive">
+          <table class="table">
             <tr>
+              {{#each weekdays}}
               <th>
                 {{day}}
               </th>
-           </tr>
-           {{/each}}
-        </thead>
-        <tbody>
-          {{#each nameAndDays}}
-          <tr>
-            <td>
-                  {{first_name}}
-                 
-            </td> 
+              {{/each}}
             </tr>
-          {{/each}}
-        </tbody>
-      </table>
+            <tr>
+              {{#each weekdays}}
+              <td>
+                <ul>
+                  {{#each waiters}}
+                  <li>{{this}}</li>
+                  {{/each}}
+                </ul>
+              </td>
+              {{/each}}
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
-   </div>
- </div>
- </div>
+  </div>
+  <a href="/reset"><button type="button" class="btn">RESET</button></a>
 </div>
-   
-
-
-
-
-

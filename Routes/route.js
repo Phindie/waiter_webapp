@@ -14,8 +14,6 @@ module.exports = function (service) {
         try{
             let user = req.params.username;
             let shifts = req.body.shifts;
-            console.log(shifts);
-            
             let weekdays = await service.collectDays();
             let userId = await service.getUserId(user);
             await service.insertwaiterShifts(userId,shifts);
@@ -26,16 +24,29 @@ module.exports = function (service) {
     }
     async function getShifts(req, res, next) {
         try{
-            let nameAndDays = await service.jointTables();
-            let weekdays = await service.collectDays();
-            res.render('waitersList', {weekdays,nameAndDays});
+            // let nameAndDays = await service.jointTables();
+            // console.log(nameAndDays);
+            
+            // let weekdays = await service.collectDays();
+            // console.log(weekdays);
+            let weekdays = await service.getAllShifts();
+            res.render('waitersList', {weekdays});
         } catch(err){
-
+            res.send(err.stack)
+        }
+    }
+    async function resetting(req, res){
+        try{
+            await service.reset();
+            res.redirect('days')
+        } catch(err){
+            res.send(err.stack)
         }
     }
     return {
         getRoute,
         getPost,
-        getShifts
+        getShifts,
+        resetting
     }
 }
