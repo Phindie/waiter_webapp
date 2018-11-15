@@ -54,11 +54,13 @@ module.exports = function (pool) {
                 await insertShift(userId,dayId);
 
             }
-        }else{
-            let dayData = await selectWeekdays(shifts);
-            let dayId = dayData[0].id;
-            await insertShift(userId,dayId);
-        }
+         }
+        //  else{
+        //     let dayData = await selectWeekdays(shifts);
+        //     console.log(dayData)
+        //     let dayId = dayData[0].id;
+        //     await insertShift(userId,dayId);
+        // }
     }
     async function getDayShifts(day){
         let result = await pool.query('select * from shifts where weekday_id = $1', [day]);
