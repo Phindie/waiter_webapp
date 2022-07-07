@@ -17,7 +17,7 @@
     "express-flash": "0.0.2",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
-    "moment": "^2.22.2",
+    "moment": "^2.29.4",
     "pg": "^7.4.3",
     "pg-pool": "^2.0.3",
     "pool": "^0.4.1"
